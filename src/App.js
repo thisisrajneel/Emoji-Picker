@@ -4,18 +4,23 @@ import { useState } from 'react';
 
 function App() {
 
-  const [counter, setCounter] = useState(0)
+  const inputChangeHandler = (event) => {
+    let temp = event.target.value
+    setDisplay(temp);  
+  }
 
-  const clickHandler = () => setCounter(counter+1)
+  const [display, setDisplay] = useState('')
 
   return (
     <div className="App">
       <h1>
         Emoji Picker
       </h1>
-      <button onClick={clickHandler}>
-        Click Me
-      </button> { counter }
+      <input 
+        placeholder='input emoji here'
+        onChange={inputChangeHandler}
+        />
+        <p>{ display }</p>
     </div>
   );
 }
