@@ -1,11 +1,12 @@
 import './App.css';
 import { useState } from 'react';
 
-const EmojiArray = ({ emojis, setDisplay, meanings }) => {
+const EmojiArray = ({ emojis, setDisplay, dictionary }) => {
 
   const emojiClick = (event) => {
     const test = event.target.value
-    setDisplay(test)
+    const meaning = dictionary[test]
+    setDisplay(meaning)
   }
 
   return (
@@ -28,18 +29,9 @@ const App = () => {
 
   const objectEmoji = {
     "🎏": "Carp Streamer",
-    "🎊": "Confetti Ball",
-    "💈": "Barber Pole",
-    "🔮": "Crystal Ball",
-    "📟": "Pager",
-    "🏮": "Lantern",
-    "🔭": "Telescope",
-    "🔬": "Microscope",
-    "✉️": "Envelope",
-    "📰": "Newspaper",
-    "📐": "Set Square",
-    "✒️": "Black Nib",
-    "📂": "Folder"
+    "🙂": "Smiling",
+    "😉": "Winking",
+    "😂": "Laughing"
   };
 
   const emojis = Object.keys(objectEmoji)
@@ -56,7 +48,7 @@ const App = () => {
         placeholder='input emoji here'
         onChange={inputChangeHandler}
       />
-      <EmojiArray emojis={emojis} setDisplay={setDisplay} meanings={meanings} />
+      <EmojiArray emojis={emojis} setDisplay={setDisplay} dictionary={objectEmoji} />
       <p>{ display }</p>
 
     </div>
