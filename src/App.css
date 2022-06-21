@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.EmojiArray {
+  display: flex;
+  flex-direction: column;
+}
+
+.emoji {
+  display: inline;
+  padding: 5px;
+  margin: 5px;
+}
+
+.inputBox {
+  margin-bottom: 1rem;
+}
